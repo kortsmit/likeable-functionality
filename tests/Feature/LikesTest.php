@@ -3,18 +3,26 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LikesTest extends TestCase
 {
     use DatabaseMigrations;
 
     /** @test */
+//    function guests_can_not_like_anything()
+//    {
+//        $this->withExceptionHandling()
+//            ->post('posts/1/likes')
+//            ->assertRedirect('/login');
+//    }
+
+    /** @test */
     public function an_authenticated_user_can_like_any_post()
     {
-        $post = factory('App\Post')->make();
+        $this->signIn();
+
+        $post = create('App\Post');
 
         $this->post('posts/' . $post->id . '/likes');
 

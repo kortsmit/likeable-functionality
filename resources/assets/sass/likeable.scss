@@ -1,0 +1,20 @@
+$red: #c81f3f;
+$grey-light: hsl(0, 0%, 71%) !default
+
+.likeable {
+  a {
+    color: $grey-light;
+    text-decoration: none;
+    cursor: pointer;
+    :hover,
+    :active {
+      color: $red;
+    }
+    &.liked {
+      color: $red;
+    }
+  }
+  small {
+    color: $grey-light;
+  }
+}

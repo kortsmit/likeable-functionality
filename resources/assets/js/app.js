@@ -15,8 +15,13 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+import Likeable from './components/likeable.vue'
 
-const app = new Vue({
-    el: '#app'
-});
+new Vue({
+
+    el: '#vue-app',
+
+    components: {
+        Likeable
+    }
+})

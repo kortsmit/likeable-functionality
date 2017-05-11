@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" id="vue-app">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 @foreach($posts as $post)
@@ -15,10 +15,7 @@
                                 <i class="fa fa-clock-o"></i>
                                 <small>{{ $post->created_at->diffForHumans() }}</small>
                                 <span class="pull-right">
-                                    <a href="">
-                                        <i class="fa fa-heart"></i>
-                                        <small>123</small>
-                                    </a>
+                                    <likeable></likeable>
                                 </span>
                             </div>
                         </div>

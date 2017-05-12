@@ -2,19 +2,10 @@
     <div class="likeable" v-cloak>
         <a v-on:click="like"
            v-bind:class="{ liked: liked }">
-            <i class="fa fa-heart"></i>
+            <i class="fa fa-heart"
+               v-bind:class="{ liked: liked }"></i>
         </a>
         <small>{{ likes }}</small>
-
-        <!--<button v-on:click="myFilter"-->
-                <!--v-bind:class="{ active: isActive }"-->
-                <!--id="heart">-->
-            <!--<span class="glyphicon glyphicon-heart">-->
-            <!--<span class="glyphicon glyphicon-heart">-->
-            <!--</span>-->
-        <!--</span>-->
-        <!--</button>-->
-
     </div>
 </template>
 

@@ -15,7 +15,11 @@
                                 <i class="fa fa-clock-o"></i>
                                 <small>{{ $post->created_at->diffForHumans() }}</small>
                                 <span class="pull-right">
-                                    <likeable></likeable>
+                                    <likeable
+                                        total_like_count="{{ $post->likeCount }}"
+                                        user_liked="{{ $post->liked() }}"
+                                        post_id="{{ $post->id }}">
+                                    </likeable>
                                 </span>
                             </div>
                         </div>

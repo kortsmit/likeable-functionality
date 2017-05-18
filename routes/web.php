@@ -16,3 +16,4 @@ Auth::routes();
 
 Route::get('/', 'PostsController@index');
 Route::get('/posts/{post}/likes', 'LikesController@store');
+Route::delete('/posts/{post}/likes', 'LikesController@delete');

@@ -3,30 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Illuminate\Http\Request;
 
 class LikesController extends Controller
 {
     /**
      * LikesController constructor.
+     *
+     * @param Post $post
      */
-    public function __construct()
+    public function __construct(Post $post)
     {
         $this->middleware('auth');
+
+        $this->post = $post;
     }
 
     /**
+     * Like a specific post.
      *
-     *
-     * @param Post $post
-     * @return mixed
+     * @param integer $postId
      */
-    public function store(Post $post)
+    public function store($postId)
     {
-        return \DB::table('likes')->insert([
-            'user_id'    => auth()->id(),
-            'liked_id'   => $post->id,
-            'liked_type' => get_class($post)
-        ]);
+        $this->post->find($postId)->like();
+        return $this->post->find($postId)->likeCount;
+    }
+
+    /**
+     * Unlike a specific post.
+     *
+     * @param integer $postId
+     */
+    public function delete($postId)
+    {
+        $this->post->find($postId)->unlike();
+        return $this->post->find($postId)->get();
     }
 }

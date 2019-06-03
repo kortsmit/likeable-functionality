@@ -1,6 +1,6 @@
 ## Likeable Functionality
 
-**NOTE: this project is not completed or functional**
+**NOTE: this project is not complete or functional**
 
 ### Setup Instructions
 
